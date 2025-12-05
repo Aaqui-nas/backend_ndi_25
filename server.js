@@ -1,7 +1,14 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const port = process.env.PORT || 3939;
+
+app.use(cors({
+  origin: ["http://localhost:3000", "https://fabulous-valkyrie-5ba326.netlify.app"],
+  methods: "GET,POST,PUT,DELETE,PATCH",
+  credentials: true
+}));
 
 app.enable('case sensitive routing');
 app.use(express.json());
